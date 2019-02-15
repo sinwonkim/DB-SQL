@@ -8,21 +8,39 @@
 
 우선 JOIN을 할 두 테이블을 생성하자
 
-CREATE TABLE girl_group 
-(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	name VARCHAR(30) NOT NULL,
-	debut DATE NOT NULL,
-	hit_song INT ,
+create table A
+ (
+	id  INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    debut DATE NOT NULL,
+    hit_song INT 
 );
 
-CREATE TABLE song 
+create table song 
 (
-	id INT PRIMARY KEY AOTO_INCREMENT,
-	title VARCHAR(30) NOT NULL,
-	lyrics VARCHAR(30)
+	id INT PRIMARY KEY auto_increment,
+    title VARCHAR(30) NOT NULL,
+    lyrics VARCHAR(30)
 );
 
-INSERT INTO song (id,title,lyrics) VALUES('101,'TEll ME')
-	
-	
+INSERT INTO song(id,title,lyrics) VALUES(101,'TELL ME','tell me tell');
+INSERT INTO song(id,title,lyrics) VALUES(102,'sorry','tell me tell');
+INSERT INTO song(id,title,lyrics) VALUES(103,'Mister','tell me Mister');
+
+INSERT INTO A(name,debut,hit_song) VALUES('원더걸스','2019-02-15',101);
+INSERT INTO A(name,debut,hit_song) VALUES('소녀시대','2018-01-19',101);
+INSERT INTO A(name,debut,hit_song) VALUES('오마이걸','2018-12-27',103);
+
+select * from a;
+select * from song;
+
+select a.id, a.name, s.title
+from A AS a
+join song AS s
+on s.id = a.hit_song;
+
+Result -------------------------------------------------
+id name       debut      hit_song
+1  원더걸스 2019-02-15    101
+2  소녀시대 2018-01-19    101
+3  오마이걸 2018-12-27    103 
