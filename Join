@@ -1,0 +1,28 @@
+조인은 관계형 데이터 베이스에서 일반적으로 많이 
+사용하며, 충분한 이해 없이 사용하기 쉬운 내용이다.
+
+1.INNER 조인 
+2.LEFT OUTER, RIGHT OUTER, OUTER 조인
+3.카티전 조인(CROSS 조인)
+4.셀프조인
+
+우선 JOIN을 할 두 테이블을 생성하자
+
+CREATE TABLE girl_group 
+(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	debut DATE NOT NULL,
+	hit_song INT ,
+);
+
+CREATE TABLE song 
+(
+	id INT PRIMARY KEY AOTO_INCREMENT,
+	title VARCHAR(30) NOT NULL,
+	lyrics VARCHAR(30)
+);
+
+INSERT INTO song (id,title,lyrics) VALUES('101,'TEll ME')
+	
+	
